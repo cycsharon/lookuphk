@@ -313,7 +313,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 .wm.done .wm-top span{color:var(--dim)}
 
 /* explore sub-navigation */
-.subnav{position:sticky;top:calc(60px + env(safe-area-inset-top,0px));z-index:15;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:rgba(7,11,24,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-top:calc(60px + env(safe-area-inset-top,0px));scrollbar-width:none}
+.subnav{position:sticky;top:calc(65px + env(safe-area-inset-top,0px));z-index:15;display:flex;gap:8px;overflow-x:auto;padding:10px 16px;background:rgba(7,11,24,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-top:calc(65px + env(safe-area-inset-top,0px));scrollbar-width:none}
 .subnav::-webkit-scrollbar{display:none}
 .subnav button{flex:none;min-height:40px;border:1px solid var(--line);background:transparent;color:var(--dim);border-radius:999px;padding:6px 16px;font-size:14px;white-space:nowrap}
 .subnav button[aria-pressed="true"]{border-color:var(--sun);color:var(--star);background:rgba(245,185,66,.1)}
@@ -499,6 +499,34 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 .ask-form .btn{min-width:52px;padding:0;justify-content:center;border:0}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
+/* astronaut life */
+.astro-times{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.astro-times button{flex:none;min-width:92px;min-height:60px;border:1px solid var(--line);background:var(--sky);color:var(--star);border-radius:14px;padding:8px 10px;display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left}
+.astro-times button b{font-family:var(--f-display-en);font-size:16px;font-weight:600;font-variant-numeric:tabular-nums}
+.astro-times button small{font-size:12px;color:var(--dim);white-space:nowrap}
+.astro-times button.now{border-color:var(--limb)}
+.astro-times button.on{border-color:var(--sun);background:rgba(245,185,66,.1)}
+.astro-detail{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:start}
+.ad-ico{width:56px;height:56px;border-radius:16px;background:rgba(245,185,66,.12);color:var(--sun);display:grid;place-items:center}
+.astro-detail h3{margin:2px 0 4px;font-family:var(--f-display-zh);font-weight:900;font-size:21px}
+.astro-detail p{margin:0;color:#C9D0E4;font-size:16px}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.job{border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.job b{font-size:16px}
+.job p{margin:4px 0 0;color:#C9D0E4;font-size:14px}
+.foods{display:flex;flex-direction:column;gap:8px}
+.food{border:1px solid var(--line);border-radius:14px;padding:0 14px}
+.food summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weight:600;font-size:16px}
+.food p{margin:0 0 12px;color:#C9D0E4;font-size:15px}
+.tray{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.tray-item{border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.tray-item.good{border-color:#7BE3A0;background:rgba(123,227,160,.06)}
+.tray-item.bad{border-color:#F08A6E;background:rgba(240,138,110,.06)}
+.tray-item p{margin:0;font-size:14px;color:#C9D0E4}
+.tray-btns{display:flex;gap:8px}
+.tray-btns button{flex:1;min-height:44px;border:1px solid var(--line);background:var(--sky);color:var(--star);border-radius:10px;font-size:14px}
+.tray-btns button:hover{border-color:var(--dim)}
+
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pop{animation:none}.hkmap .beam{animation:none}}
 </style>
 </head>
@@ -668,7 +696,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       </details>
     </div>
 
-    <a class="btn btn-ghost btn-block" href="#settings" data-go="settings"><span class="zh">設定與關於</span><span class="en">Settings &amp; about</span></a>
+    <a class="btn btn-ghost btn-block" href="#settings" data-go="settings"><span class="zh">設定</span><span class="en">Settings</span></a>
 
     <div class="card" style="display:flex;flex-direction:column;gap:12px">
       <div class="label"><span class="zh">我的太空任務卡</span><span class="en">My crew card</span></div>
@@ -788,7 +816,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 <!-- ================= SETTINGS & ABOUT ================= -->
 <div data-view="settings" id="view-settings">
   <div class="view-pad">
-    <h1 class="view-title"><span class="zh">設定與關於</span><span class="en">Settings &amp; about</span></h1>
+    <h1 class="view-title"><span class="zh">設定</span><span class="en">Settings</span></h1>
 
     <div class="card" style="display:flex;flex-direction:column;gap:12px">
       <div class="label"><span class="zh">語言</span><span class="en">Language</span></div>
@@ -804,24 +832,6 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       <div id="reset-box"></div>
     </div>
 
-    <div class="card" style="display:flex;flex-direction:column;gap:10px">
-      <div class="label" style="color:var(--sun)"><span class="zh">關於「抬頭」</span><span class="en">About Look Up HK</span></div>
-      <p style="margin:0;color:#C9D0E4"><span class="zh">「抬頭」是為「夢溪少年談」國家成就科普計劃 2026 青少年創科實踐挑戰賽（公開組）而製作的科普網站，主題為「航空航天」。我們希望讓香港市民認識國家的天宮空間站，親眼在夜空中找到它，並了解香港在國家航天事業中的角色和機遇。</span><span class="en">Look Up HK is a science outreach site made for the Mengxi 2026 Youth Innovation Challenge (Open Group), under the theme of aerospace. It helps people in Hong Kong get to know China's Tiangong space station, find it in the night sky with their own eyes, and see Hong Kong's role and opportunities in the national space programme.</span></p>
-      <p style="margin:0;color:#C9D0E4"><span class="zh">網站由團隊運用人工智能工具設計和編寫。所有科學內容均參考公開資料，並在下方列出來源。</span><span class="en">The team designed and built the site with the help of AI tools. All science content is based on public sources, listed below.</span></p>
-    </div>
-
-    <div class="card" style="display:flex;flex-direction:column;gap:8px">
-      <div class="label"><span class="zh">資料來源</span><span class="en">Sources</span></div>
-      <ul class="src-list">
-        <li><a href="https://www.cmse.gov.cn/">中國載人航天工程 China Manned Space</a></li>
-        <li><a href="https://www.polyu.edu.hk/en/media/media-releases/2020/0723_polyu-contributes-to-the-nations-first-mars">PolyU: Mars Camera and Chang'e instruments</a></li>
-        <li><a href="https://www.polyu.edu.hk/publications/excelximpact/issue/202101/cover-story/polyu-s-space-instruments-contribute-to-nation-s-first-lunar-sample-return-mission">PolyU: Chang'e-5 sampling system</a></li>
-        <li><a href="https://news.cgtn.com/news/2026-07-01/Hong-Kong-research-boosts-China-s-national-deep-space-exploration-1OqszvvdwcM/p.html">CGTN: Hong Kong research in deep space exploration</a></li>
-        <li><a href="https://orbitalradar.com/glossary/tiangong">Orbital Radar: Tiangong</a></li>
-        <li><a href="https://www.astroviewer.net/iss/en/observation-css.php">Astroviewer: Observing the Chinese Space Station</a></li>
-        <li><span class="zh">「夢溪少年談」2026 活動章程</span><span class="en">Mengxi 2026 competition rules</span></li>
-      </ul>
-    </div>
   </div>
 </div>
 
@@ -832,6 +842,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   <button data-sub="timeline" aria-pressed="false"><span class="zh">航天時間線</span><span class="en">Timeline</span></button>
   <button data-sub="hk" aria-pressed="false"><span class="zh">香港足印</span><span class="en">HK in space</span></button>
   <button data-sub="spot" aria-pressed="false"><span class="zh">觀測指南</span><span class="en">Spotting guide</span></button>
+  <button data-sub="astro" aria-pressed="false"><span class="zh">太空人生活</span><span class="en">Astronaut life</span></button>
 </div>
 <div id="ex-story">
 <section class="hero" aria-label="開場 Opening">
@@ -1079,6 +1090,44 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
     <a class="btn btn-primary btn-block" href="#today" data-go="today"><span class="zh">去練習：今日挑戰</span><span class="en">Practise: today's challenge</span></a>
   </div>
 </div>
+
+<!-- ---------- astronaut life ---------- -->
+<div id="ex-astro" hidden>
+  <div class="view-pad">
+    <div class="label" style="color:var(--sun)"><span class="zh">太空人生活</span><span class="en">Astronaut life</span></div>
+    <h1 class="view-title"><span class="zh">太空人在天宮怎樣過一天？</span><span class="en">What is a day like on Tiangong?</span></h1>
+    <p class="intro" id="astro-now"></p>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:14px">
+      <div class="label"><span class="zh">太空人的一天（示意，實際安排每日不同）</span><span class="en">A day in orbit (illustrative; real schedules vary)</span></div>
+      <div class="astro-times" id="astro-times" role="group" aria-label="時間表 Schedule"></div>
+      <div class="astro-detail" id="astro-detail" aria-live="polite"></div>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="label" style="color:var(--sun)"><span class="zh">太空人的工作</span><span class="en">What astronauts do</span></div>
+      <div class="jobs" id="astro-jobs"></div>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="label" style="color:var(--sun)"><span class="zh">太空廚房</span><span class="en">The space kitchen</span></div>
+      <p style="margin:0;color:#C9D0E4;font-size:15px"><span class="zh">點擊每一項，看看太空人怎樣吃喝。</span><span class="en">Tap each one to see how astronauts eat and drink.</span></p>
+      <div class="foods" id="astro-food"></div>
+    </div>
+
+    <div class="card" style="display:flex;flex-direction:column;gap:12px">
+      <div class="cal-head">
+        <div class="label" style="color:var(--sun)"><span class="zh">小遊戲：太空餐盤</span><span class="en">Mini game: the space tray</span></div>
+        <div class="label" id="tray-score"></div>
+      </div>
+      <p style="margin:0;color:#C9D0E4;font-size:15px"><span class="zh">你是太空營養師。以下哪些食物適合帶上天宮？首次完成 +20 XP。</span><span class="en">You’re the space nutritionist. Which of these should go up to Tiangong? +20 XP the first time.</span></p>
+      <div class="tray" id="tray"></div>
+      <button class="btn btn-ghost btn-block" id="tray-reset" hidden><span class="zh">再玩一次</span><span class="en">Play again</span></button>
+    </div>
+
+    <a class="btn btn-primary btn-block" href="#academy" data-go="academy"><span class="zh">想知道更多？上「太空生活」課程</span><span class="en">Want more? Take the Life in space course</span></a>
+  </div>
+</div>
 </div>
 
 <!-- ================= NAV ================= -->
@@ -1111,7 +1160,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
         <button data-m-open="train"><span class="zh">太空人訓練營</span><span class="en">Astronaut training</span></button>
       </div>
       <div class="dgroup"><div class="label"><span class="zh">學院</span><span class="en">Academy</span></div>
-        <button data-m-go="academy"><span class="zh">太空學院：4 個課程</span><span class="en">Space Academy: 4 courses</span></button>
+        <button data-m-go="academy"><span class="zh">太空學院：8 個課程</span><span class="en">Space Academy: 8 courses</span></button>
       </div>
       <div class="dgroup"><div class="label"><span class="zh">夜空</span><span class="en">Sky</span></div>
         <button data-m-go="sky"><span class="zh">夜空日誌：日落、月相、觀測紀錄</span><span class="en">Sky log: sunset, moon phase, observations</span></button>
@@ -1121,10 +1170,11 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
         <button data-m-sub="timeline"><span class="zh">航天時間線</span><span class="en">Timeline</span></button>
         <button data-m-sub="hk"><span class="zh">香港足印</span><span class="en">HK in space</span></button>
         <button data-m-sub="spot"><span class="zh">觀測指南</span><span class="en">Spotting guide</span></button>
+        <button data-m-sub="astro"><span class="zh">太空人生活：吃、睡、工作</span><span class="en">Astronaut life: eating, sleeping, working</span></button>
       </div>
       <div class="dgroup"><div class="label"><span class="zh">我的</span><span class="en">Me</span></div>
         <button data-m-go="me"><span class="zh">太空檔案、任務卡、徽章</span><span class="en">Profile, crew card, badges</span></button>
-        <button data-m-go="settings"><span class="zh">設定與關於</span><span class="en">Settings &amp; about</span></button>
+        <button data-m-go="settings"><span class="zh">設定</span><span class="en">Settings</span></button>
       </div>
     </div>
   </div>
@@ -1531,11 +1581,12 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
     {id:'historian',     ic:'moon',   xp:40,  zh:'航天歷史家', en:'Space historian', dz:'看過「航天時間線」和「香港足印」', de:'Read the Timeline and HK in space pages'},
     {id:'weekly_ace',    ic:'trophy', xp:100, zh:'任務達人',   en:'Mission ace',    dz:'一星期內完成全部 3 個每週任務', de:'Finish all 3 weekly missions in one week'},
     {id:'academy_1',     ic:'star',   xp:40,  zh:'第一張證書', en:'First certificate', dz:'在太空學院取得第一張證書', de:'Earn your first Academy certificate'},
-    {id:'academy_all',   ic:'trophy', xp:150, zh:'太空學院畢業', en:'Academy graduate', dz:'取得全部 4 張課程證書', de:'Earn all 4 course certificates'},
+    {id:'academy_all',   ic:'trophy', xp:150, zh:'太空學院畢業', en:'Academy graduate', dz:'取得全部課程證書', de:'Earn every course certificate'},
     {id:'rocket_orbit',  ic:'star',   xp:50,  zh:'成功入軌',   en:'Orbit reached',  dz:'在「火箭升空」成功進入軌道', de:'Reach orbit in Rocket launch'},
     {id:'rocket_perfect',ic:'target', xp:120, zh:'完美發射',   en:'Perfect launch', dz:'火箭升空得分 90 或以上', de:'Score 90 or more in Rocket launch'},
     {id:'trainee',       ic:'check',  xp:40,  zh:'訓練生',     en:'Trainee',        dz:'完成反應和記憶兩項訓練', de:'Complete both training tests'},
     {id:'quick_reflex',  ic:'flame',  xp:60,  zh:'閃電反應',   en:'Lightning reflexes', dz:'反應測試平均低於 300 毫秒', de:'Average under 300 ms in the reaction test'},
+    {id:'space_chef',    ic:'check',  xp:40,  zh:'太空大廚',   en:'Space chef',     dz:'「太空餐盤」全部答對', de:'Get every item right in the space tray game'},
     {id:'observer',      ic:'eye',    xp:30,  zh:'觀測員',     en:'Observer',       dz:'在夜空日誌加入第一條紀錄', de:'Add your first sky log entry'},
     {id:'observer5',     ic:'eye',    xp:80,  zh:'資深觀測員', en:'Seasoned observer', dz:'累積 5 條觀測紀錄', de:'Log 5 observations'},
     {id:'saw_tiangong',  ic:'star',   xp:100, zh:'親眼見證',   en:'Seen it myself', dz:'記錄一次親眼看到天宮', de:'Log a real sighting of Tiangong'}
@@ -1745,7 +1796,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   }
   $('district').addEventListener('change', function(e){ S.district = e.target.value; save(); if (S.district) award('district'); renderAll(); });
 
-  function renderAll(){ renderToday(); renderWeekly(); renderPlay(); renderPlayExtras(); renderMe(); renderTimeline(); renderHK(); renderSettings(); renderSky(); renderLogForm(); renderLogs(); if ($('view-academy').classList.contains('active')) acRender(); }
+  function renderAll(){ renderToday(); renderWeekly(); renderPlay(); renderPlayExtras(); renderMe(); renderTimeline(); renderHK(); renderAstro(); renderSettings(); renderSky(); renderLogForm(); renderLogs(); if ($('view-academy').classList.contains('active')) acRender(); }
   document.addEventListener('langchange', function(){ renderAll(); if (!$('game').hidden) relabelGame(); });
   document.addEventListener('moduleview', function(e){
     S.modules[e.detail] = 1; save();
@@ -2270,7 +2321,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   }
 
   /* ================= explore: sub pages ================= */
-  var SUBS = ['story','timeline','hk','spot'];
+  var SUBS = ['story','timeline','hk','spot','astro'];
   function showSub(id, silent){
     if (SUBS.indexOf(id) < 0) id = 'story';
     SUBS.forEach(function(s){ $('ex-'+s).hidden = s !== id; });
@@ -2561,7 +2612,80 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
      quiz:[
       {q:P('理大為嫦娥五號研製了什麼？','What did PolyU build for Chang’e-5?'), o:[P('表取採樣封裝系統','The surface sampling and packing system'),P('火箭引擎','The rocket engine'),P('太空衣','The spacesuits')]},
       {q:P('天韻相機用來監測什麼？','What does the Tianyun Camera monitor?'), o:[P('溫室氣體','Greenhouse gases'),P('太陽黑子','Sunspots'),P('太空人睡眠','Astronauts’ sleep')]},
-      {q:P('設計太空儀器時要考慮什麼？','What must space instruments be designed for?'), o:[P('發射震動、極端溫差和真空','Launch vibration, extreme temperatures and vacuum'),P('只需要外觀好看','Only looking good'),P('只需要價錢便宜','Only being cheap')]}]}
+      {q:P('設計太空儀器時要考慮什麼？','What must space instruments be designed for?'), o:[P('發射震動、極端溫差和真空','Launch vibration, extreme temperatures and vacuum'),P('只需要外觀好看','Only looking good'),P('只需要價錢便宜','Only being cheap')]}]},
+    {id:'science', t:P('太空站上的科學','Science on Tiangong'), s:P('為什麼要在太空做實驗？太空種植和新材料','Why experiment in space? Growing plants and new materials'),
+     lessons:[
+      {t:P('為什麼要在太空做實驗？','Why do experiments in space?'), p:[
+        P('在微重力下，液體不會因為重量而分層，熱空氣不會上升，火焰、液體和材料的表現都和地球上不同。','In microgravity, liquids don’t separate by weight and hot air doesn’t rise, so flames, liquids and materials all behave differently from on Earth.'),
+        P('這讓科學家可以研究一些在地球上被重力「掩蓋」了的現象，就像把一個一直存在的干擾關掉。','That lets scientists study effects that gravity normally hides on Earth, like switching off a disturbance that is always there.')],
+       k:P('微重力讓科學家看到被重力掩蓋的現象','Microgravity reveals effects that gravity hides')},
+      {t:P('在太空種植物','Growing plants in space'), p:[
+        P('2022 年，科學家在問天實驗艙進行水稻和擬南芥的生長實驗，觀察植物能否在太空完成由種子到種子的生命周期。','In 2022 scientists grew rice and thale cress in the Wentian module to see whether plants could complete their life cycle, seed to seed, in space.'),
+        P('將來到月球或火星的長期任務，太空人可能需要自己種食物，所以這些研究非常重要。','Future long missions to the Moon or Mars may need astronauts to grow their own food, so this research matters.')],
+       k:P('太空種植為將來的長期任務做準備','Space farming prepares for future long missions')},
+      {t:P('材料與流體','Materials and fluids'), p:[
+        P('夢天實驗艙裝有實驗櫃，專門研究材料和流體。在地球上，熔化的材料會因重力而沉澱分層。','The Mengtian module has experiment racks for materials and fluids. On Earth, melted materials settle into layers because of gravity.'),
+        P('在微重力下，這種分層大大減少，有助科學家了解怎樣製造更均勻、更好的新材料。','In microgravity that layering largely disappears, helping scientists learn how to make more even, better materials.')],
+       k:P('微重力有助研究更均勻的新材料','Microgravity helps research more even materials')}],
+     quiz:[
+      {q:P('為什麼要在太空做實驗？','Why do experiments in space?'), o:[P('可以研究被重力掩蓋的現象','To study effects gravity hides on Earth'),P('太空實驗室比較便宜','Space labs are cheaper'),P('地球上沒有實驗室','There are no labs on Earth')]},
+      {q:P('2022 年問天實驗艙種植了什麼？','What was grown in the Wentian module in 2022?'), o:[P('水稻和擬南芥','Rice and thale cress'),P('蘋果樹','Apple trees'),P('仙人掌','Cactuses')]},
+      {q:P('微重力對熔化的材料有什麼幫助？','How does microgravity help with melted materials?'), o:[P('減少沉澱分層，材料更均勻','Less settling into layers, so more even materials'),P('令材料熔化得更快','They melt faster'),P('令材料變成金色','They turn gold')]}]},
+    {id:'moonmars', t:P('探月與探火','The Moon and Mars'), s:P('嫦娥怎樣一步步登月？天問一號做了什麼？','How did Chang’e reach the Moon step by step? What did Tianwen-1 do?'),
+     lessons:[
+      {t:P('繞、落、回三步走','Orbit, land, return'), p:[
+        P('中國探月工程分三步：先「繞」着月球飛行（嫦娥一號、二號），再「落」在月球上（嫦娥三號、四號），最後採樣返「回」地球（嫦娥五號、六號）。','China’s lunar programme went in three steps: orbit the Moon (Chang’e-1 and -2), land on it (Chang’e-3 and -4), then bring samples back (Chang’e-5 and -6).'),
+        P('每一步都建立在上一步的經驗上，逐步挑戰更難的任務。','Each step built on what the last one learned, taking on harder missions one at a time.')],
+       k:P('繞 → 落 → 回','Orbit → land → return')},
+      {t:P('月球背面怎樣通訊？','Talking from the far side'), p:[
+        P('月球背面永遠背向地球，那裏發出的信號無法直接傳回地球。','The Moon’s far side always faces away from Earth, so signals from there can’t reach Earth directly.'),
+        P('中國發射了「鵲橋」中繼衛星，像一個太空中的轉播站，讓嫦娥四號和嫦娥六號可以經它與地球通訊。','China launched the Queqiao relay satellites, like relay stations in space, so Chang’e-4 and Chang’e-6 could talk to Earth through them.')],
+       k:P('中繼衛星「鵲橋」是月球背面的轉播站','The Queqiao relay satellites connect the far side to Earth')},
+      {t:P('天問一號：一次完成三件事','Tianwen-1: three jobs in one mission'), p:[
+        P('天問一號是中國首個火星任務，2020 年發射。它一次任務就完成了環繞火星、着陸和巡視三個目標。','Tianwen-1, China’s first Mars mission, launched in 2020. In one mission it orbited Mars, landed and explored the surface.'),
+        P('2021 年，祝融號火星車在火星表面着陸並開始探測。香港理工大學為這次任務研製了着陸監視相機。','In 2021 the Zhurong rover landed and began exploring. PolyU built the mission’s landing surveillance camera.')],
+       k:P('環繞、着陸、巡視一次完成','Orbit, land and rove in a single mission')}],
+     quiz:[
+      {q:P('中國探月工程的三步是？','What are the three steps of China’s lunar programme?'), o:[P('繞、落、回','Orbit, land, return'),P('飛、停、走','Fly, stop, walk'),P('看、拍、傳','Look, photograph, send')]},
+      {q:P('嫦娥四號在月球背面怎樣與地球通訊？','How did Chang’e-4 talk to Earth from the far side?'), o:[P('經「鵲橋」中繼衛星','Through the Queqiao relay satellite'),P('直接傳送信號','By sending signals directly'),P('用很長的電線','With a very long cable')]},
+      {q:P('天問一號的火星車叫什麼名字？','What is Tianwen-1’s rover called?'), o:[P('祝融號','Zhurong'),P('玉兔號','Yutu'),P('天和號','Tianhe')]}]},
+    {id:'satellites', t:P('衛星與日常生活','Satellites in daily life'), s:P('北斗導航、氣象衛星，衛星怎樣幫助我們？','BeiDou navigation and weather satellites: how do satellites help us?'),
+     lessons:[
+      {t:P('北斗導航系統','The BeiDou navigation system'), p:[
+        P('北斗是中國自主建設的衛星導航系統，在 2020 年完成全球組網，可以為全世界提供定位和導航服務。','BeiDou is China’s own satellite navigation system. It completed its global network in 2020 and provides positioning and navigation worldwide.'),
+        P('手機地圖、交通運輸、漁船出海和救援工作，都會用到衛星定位。','Phone maps, transport, fishing boats at sea and rescue work all rely on satellite positioning.')],
+       k:P('北斗：中國的全球衛星導航系統','BeiDou: China’s global satellite navigation system')},
+      {t:P('氣象衛星','Weather satellites'), p:[
+        P('中國的風雲系列氣象衛星，從太空觀察雲層、風暴和颱風的變化。','China’s Fengyun weather satellites watch clouds, storms and typhoons from space.'),
+        P('這些資料幫助預測天氣和監察颱風，對經常受颱風影響的香港特別重要。','Their data helps forecast the weather and track typhoons, which matters a lot for typhoon-prone Hong Kong.')],
+       k:P('風雲衛星幫助預測天氣和監察颱風','Fengyun satellites help forecast weather and track typhoons')},
+      {t:P('通訊與遙感','Communications and remote sensing'), p:[
+        P('通訊衛星可以傳送電視、電話和網絡信號，連接偏遠地區和海上的船隻。','Communication satellites carry TV, phone and internet signals, linking remote areas and ships at sea.'),
+        P('遙感衛星從太空拍攝地面，用於城市規劃、農業、環境保護和災害監察。','Remote-sensing satellites photograph the ground for city planning, farming, environmental protection and disaster monitoring.')],
+       k:P('衛星每天都在默默幫助我們','Satellites quietly help us every day')}],
+     quiz:[
+      {q:P('北斗是什麼？','What is BeiDou?'), o:[P('中國的衛星導航系統','China’s satellite navigation system'),P('一款火箭','A rocket'),P('一個太空站','A space station')]},
+      {q:P('氣象衛星主要用來做什麼？','What are weather satellites mainly for?'), o:[P('觀察雲層和颱風，幫助預測天氣','Watching clouds and typhoons to help forecast weather'),P('運送太空人','Carrying astronauts'),P('採集月球樣本','Collecting Moon samples')]},
+      {q:P('遙感衛星拍攝的影像可以用來做什麼？','What can remote-sensing images be used for?'), o:[P('城市規劃和災害監察','City planning and disaster monitoring'),P('煮飯','Cooking'),P('發電','Making electricity')]}]},
+    {id:'environment', t:P('太空環境與安全','Space environment and safety'), s:P('真空、溫差、輻射和太空碎片','Vacuum, temperature swings, radiation and space debris'),
+     lessons:[
+      {t:P('真空與溫差','Vacuum and temperature swings'), p:[
+        P('太空幾乎是真空，沒有空氣幫忙傳熱。太空站被太陽照到的一面可以非常熱，背光的一面卻非常冷。','Space is almost a vacuum, with no air to spread heat around. The side of the station facing the Sun gets very hot, while the shaded side gets very cold.'),
+        P('兩面的溫差可以超過一百度，所以太空站需要隔熱材料和溫度控制系統，保護太空人和儀器。','The difference can be more than a hundred degrees, so the station needs insulation and temperature control to protect the crew and equipment.')],
+       k:P('向陽面極熱、背光面極冷，需要溫控','Sunlit side hot, shaded side cold, so temperature control is a must')},
+      {t:P('太空輻射','Space radiation'), p:[
+        P('在地面上，地球的大氣層和磁場為我們擋住了大部分來自太空的輻射。','On the ground, Earth’s atmosphere and magnetic field block most radiation from space.'),
+        P('在太空站上輻射比地面強，所以要監測太空人受到的輻射量，把它控制在安全範圍內。','On the station radiation is stronger, so the crew’s exposure is monitored and kept within safe limits.')],
+       k:P('大氣和磁場是地球的保護罩','The atmosphere and magnetic field are Earth’s shield')},
+      {t:P('太空碎片','Space debris'), p:[
+        P('地球軌道上有大量廢棄衛星和火箭碎片，它們以極高速度飛行，即使很小的碎片也可能造成損壞。','Earth orbit holds lots of old satellites and rocket pieces moving at huge speeds. Even tiny fragments can cause damage.'),
+        P('太空站外層有防護結構，地面也會追蹤較大的碎片，必要時太空站會調整軌道避開。','The station has protective shielding, larger pieces are tracked from the ground, and the station can change its orbit to dodge them if needed.')],
+       k:P('防護結構 + 追蹤 + 避讓','Shielding + tracking + dodging')}],
+     quiz:[
+      {q:P('為什麼太空站需要溫度控制系統？','Why does the station need temperature control?'), o:[P('向陽和背光兩面溫差很大','The sunlit and shaded sides differ hugely'),P('為了煮飯','For cooking'),P('為了發光','To glow')]},
+      {q:P('在地球上，什麼幫我們擋住大部分太空輻射？','On Earth, what blocks most space radiation?'), o:[P('大氣層和磁場','The atmosphere and magnetic field'),P('雲','Clouds'),P('高樓大廈','Tall buildings')]},
+      {q:P('太空站遇到危險的太空碎片時，可能會怎樣做？','What can the station do about dangerous debris?'), o:[P('調整軌道避開','Change its orbit to dodge it'),P('用網捕捉所有碎片','Catch all of it in a net'),P('停下來等待','Stop and wait')]}]}
+
   ];
   S.academy = S.academy || {};
   function cState(id){ S.academy[id] = S.academy[id] || {l:{}, cert:false}; return S.academy[id]; }
@@ -2590,17 +2714,16 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       root.querySelectorAll('[data-l]').forEach(function(b){ b.onclick = function(){ AC = {view:'lesson', c:AC.c, l:+b.dataset.l}; acRender(); window.scrollTo(0,0); }; });
       $('ac-quiz').onclick = function(){ AC = {view:'quiz', c:AC.c, qi:0, right:0}; acRender(); window.scrollTo(0,0); };
     } else if (AC.view === 'lesson'){
-      var c2 = COURSES[AC.c], l = c2.lessons[AC.l];
+      var c2 = COURSES[AC.c], l = c2.lessons[AC.l], st2 = cState(c2.id);
+      if (!st2.l[AC.l]){ st2.l[AC.l] = 1; save(); addXP(10); note(T('完成課堂 +10 XP','Lesson complete +10 XP')); bump('lesson', 1); }
       root.innerHTML = '<div class="crumbs"><button id="ac-back">‹ '+esc(c2.t[li])+'</button></div>'+
         '<div class="label" style="color:var(--sun)">'+T('第 '+(AC.l+1)+' / 3 課','Lesson '+(AC.l+1)+' of 3')+'</div><h1 class="view-title">'+esc(l.t[li])+'</h1>'+
         '<div class="lesson">'+l.p.map(function(p){ return '<p>'+esc(p[li])+'</p>'; }).join('')+'</div>'+
         '<div class="keyfact"><span class="label">'+T('重點','Key idea')+'</span><b>'+esc(l.k[li])+'</b></div>'+
-        '<button class="btn btn-primary btn-block" id="ac-done">'+(AC.l < 2 ? T('完成，下一課','Done, next lesson') : T('完成課堂','Finish lesson'))+'</button>';
+        '<button class="btn btn-primary btn-block" id="ac-done">'+(AC.l < 2 ? T('下一課','Next lesson') : (Object.keys(st2.l).length >= 3 ? T('去做課程小測驗','Take the course quiz') : T('返回課程','Back to course')))+'</button>';
       $('ac-back').onclick = function(){ AC = {view:'course', c:AC.c}; acRender(); };
       $('ac-done').onclick = function(){
-        var st2 = cState(c2.id);
-        if (!st2.l[AC.l]){ st2.l[AC.l] = 1; save(); addXP(10); note(T('完成課堂 +10 XP','Lesson complete +10 XP')); bump('lesson', 1); }
-        if (AC.l < 2){ AC = {view:'lesson', c:AC.c, l:AC.l+1}; } else { AC = {view:'course', c:AC.c}; }
+        if (AC.l < 2){ AC = {view:'lesson', c:AC.c, l:AC.l+1}; } else if (Object.keys(cState(c2.id).l).length >= 3 && !cState(c2.id).cert){ AC = {view:'quiz', c:AC.c, qi:0, right:0}; } else { AC = {view:'course', c:AC.c}; }
         acRender(); window.scrollTo(0,0);
       };
     } else if (AC.view === 'quiz'){
@@ -3000,6 +3123,89 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
     if (entry.what === 'tg') award('saw_tiangong');
     renderLogs();
   });
+
+  /* ================= Astronaut life ================= */
+  var DAYPLAN = [
+    {h:6,  ic:'sun',   t:P('起床、梳洗','Wake up and wash'), d:P('太空中水很珍貴，太空人用濕毛巾抹身，用免沖洗的洗頭水洗頭。刷牙後的水也不能隨便吐出來。','Water is precious, so astronauts wash with wet towels and no-rinse shampoo. Even toothpaste water can’t just be spat out.')},
+    {h:7,  ic:'food',  t:P('早餐','Breakfast'), d:P('食物大多預先包裝好，有些要加熱水，有些可以用天宮上的設備加熱。','Most food comes pre-packed. Some needs hot water added, and some can be warmed with equipment on board.')},
+    {h:8,  ic:'talk',  t:P('與地面開會','Planning call with the ground'), d:P('每天和地面控制中心溝通當日的工作安排，確認實驗和維修任務。','Each day starts by going through the plan with ground control, confirming experiments and maintenance tasks.')},
+    {h:9,  ic:'lab',   t:P('科學實驗','Science experiments'), d:P('在問天和夢天實驗艙進行生命科學、材料和物理等實驗，記錄數據傳回地面。','Running life-science, materials and physics experiments in the Wentian and Mengtian labs and sending data to the ground.')},
+    {h:12, ic:'food',  t:P('午餐和休息','Lunch and a break'), d:P('三名太空人經常一起吃飯。午飯後會短暫休息。','The three astronauts often eat together, then take a short rest.')},
+    {h:14, ic:'run',   t:P('運動','Exercise'), d:P('用跑步機、單車等器材運動，跑步時要用帶子把自己「綁」在跑步機上，不然會飄走。','Workouts on a treadmill and exercise bike. On the treadmill, straps hold them down so they don’t float away.')},
+    {h:16, ic:'tool',  t:P('檢查和維修','Checks and repairs'), d:P('檢查太空站的設備，更換零件和清潔，保持太空站運作良好。','Inspecting equipment, swapping parts and cleaning to keep the station running well.')},
+    {h:19, ic:'food',  t:P('晚餐','Dinner'), d:P('晚餐通常比較豐富，節日時還會吃應節食物。','Dinner tends to be the biggest meal, with festive food on special days.')},
+    {h:20, ic:'earth', t:P('自由時間','Free time'), d:P('從窗口拍攝地球、和家人視像通話、看書或聽音樂。','Photographing Earth from the window, video-calling family, reading or listening to music.')},
+    {h:22, ic:'moon',  t:P('睡覺','Sleep'), d:P('鑽進固定在艙壁上的睡袋睡覺。因為一天有 16 次日出，太空人跟隨北京時間作息。','Zipping into a sleeping bag fixed to the wall. With 16 sunrises a day, the crew follows Beijing time to keep a regular rhythm.')}
+  ];
+  var JOBS = [
+    {t:P('科學實驗','Science experiments'), d:P('天宮是一個太空實驗室，太空人負責操作實驗，例如在問天艙種植水稻。','Tiangong is a space lab. The crew runs experiments, such as growing rice in Wentian.')},
+    {t:P('出艙活動','Spacewalks'), d:P('穿上太空衣，經問天艙的氣閘艙出艙，在太空站外安裝設備，一次可以持續幾個小時。','Suiting up and leaving through Wentian’s airlock to install equipment outside, sometimes for several hours.')},
+    {t:P('操作機械臂','Robotic arm'), d:P('用太空站的機械臂搬運設備、協助出艙的隊友。','Using the station’s robotic arm to move equipment and help crewmates outside.')},
+    {t:P('天宮課堂','Tiangong Classroom'), d:P('太空人在天宮上為地面的學生直播科學課，示範微重力下的有趣實驗。','The crew gives live science lessons from orbit to students on Earth, showing fun microgravity experiments.')},
+    {t:P('照顧身體','Looking after their health'), d:P('每天運動，定期做身體檢查，把數據傳回地面給醫生分析。','Daily exercise and regular health checks, with data sent to doctors on the ground.')},
+    {t:P('迎接飛船','Welcoming spacecraft'), d:P('協助神舟和天舟飛船對接，卸下天舟送來的食物、燃料和實驗器材。','Helping Shenzhou and Tianzhou ships dock, then unloading the food, fuel and equipment Tianzhou brings.')}
+  ];
+  var FOODS = [
+    {t:P('食物種類','Menu'), d:P('天宮上有多種中式菜餚、主食和點心，由營養師設計，盡量讓太空人吃得均衡又有家的味道。','Tiangong’s menu has many Chinese dishes, staples and snacks, designed by nutritionists to be balanced and taste like home.')},
+    {t:P('口味會變淡','Food tastes blander'), d:P('在太空，體液向頭部移動，令人好像鼻塞，所以很多太空人覺得食物味道變淡，喜歡吃濃味一點的食物。','In space, body fluids move towards the head, a bit like a stuffy nose, so many astronauts find food blander and prefer stronger flavours.')},
+    {t:P('新鮮水果','Fresh fruit'), d:P('天舟貨運飛船會帶來新鮮水果和蔬菜，但它們放不久，要盡快吃完。','Tianzhou cargo ships bring fresh fruit and vegetables, but they don’t keep long, so they’re eaten quickly.')},
+    {t:P('怎樣喝水','Drinking'), d:P('水裝在密封的袋子裏，用吸管飲用。部分飲用水由回收的水汽和尿液處理而成。','Water comes in sealed pouches with straws. Some drinking water is recycled from moisture and urine.')},
+    {t:P('小心碎屑','Watch the crumbs'), d:P('碎屑會飄進眼睛、鼻子或儀器裏，所以太空食物盡量做成一口大小，避免容易掉碎屑的食物。','Crumbs can float into eyes, noses or equipment, so space food is made bite-sized and avoids anything crumbly.')},
+    {t:P('節日食物','Festival food'), d:P('太空人在天宮上也會過節，例如過年時吃餃子，讓遠離家鄉的他們也能感受節日氣氛。','Astronauts celebrate festivals on board too, such as eating dumplings at Chinese New Year, to feel at home far from home.')}
+  ];
+  var TRAY = [
+    {t:P('密封包裝的菜餚','A sealed pouch meal'), ok:true,  x:P('適合！密封包裝不會飄散，加熱後就可以吃。','Good! Sealed pouches don’t spill and can be warmed up.')},
+    {t:P('很多碎屑的餅乾','A crumbly biscuit'), ok:false, x:P('不適合。碎屑會四處飄，可能飄進眼睛或儀器。','No. Crumbs would float everywhere, even into eyes or equipment.')},
+    {t:P('汽水','A fizzy drink'), ok:false, x:P('不適合。微重力下氣泡不會升上來，飲下去會令肚子很不舒服。','No. In microgravity the bubbles don’t rise, so drinking it would leave your stomach very uncomfortable.')},
+    {t:P('吸管飲品袋','A drink pouch with a straw'), ok:true,  x:P('適合！用吸管飲，水不會飄出來。','Good! The straw keeps the water from floating out.')},
+    {t:P('粉狀的鹽和胡椒','Loose salt and pepper'), ok:false, x:P('不適合。細小顆粒會飄散。在太空，調味料通常會做成醬汁或液體。','No. Tiny grains would drift away. In space, seasonings usually come as sauces or liquids.')},
+    {t:P('天舟送來的新鮮蘋果','A fresh apple from Tianzhou'), ok:true,  x:P('適合！新鮮水果很受歡迎，只是要盡快吃完。','Good! Fresh fruit is a treat. It just has to be eaten quickly.')}
+  ];
+  var ASTRO_IC = {
+    sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+    food:'<path d="M5 3v8a2 2 0 0 0 4 0V3M7 11v10M17 3c-2 2-2 6 0 8v10"/>',
+    talk:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',
+    lab:'<path d="M9 3h6M10 3v6L4 19a1.5 1.5 0 0 0 1.3 2h13.4a1.5 1.5 0 0 0 1.3-2l-6-10V3"/>',
+    run:'<circle cx="14" cy="4" r="2"/><path d="M6 21l3-6 3 2v-5l-3-2-3 3M12 12l4 2 3-2"/>',
+    tool:'<path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z"/>',
+    earth:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+    moon:'<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/>'
+  };
+  var astroSel = null, trayAns = {};
+  function nowSlot(){ var h = new Date(Date.now() + HKT).getUTCHours(), k = 0; DAYPLAN.forEach(function(s, i){ if (h >= s.h) k = i; }); if (h < 6) k = DAYPLAN.length - 1; return k; }
+  function renderAstro(){
+    var li = L()==='en' ? 1 : 0, now = nowSlot();
+    if (astroSel == null) astroSel = now;
+    $('astro-now').textContent = T('現在是香港和北京時間 ' + hhmm(Date.now()) + '，天宮上的太空人大概正在：' + DAYPLAN[now].t[0], 'It’s ' + hhmm(Date.now()) + ' in Hong Kong and Beijing. On Tiangong the crew is probably: ' + DAYPLAN[now].t[1].toLowerCase());
+    $('astro-times').innerHTML = DAYPLAN.map(function(s, i){
+      return '<button class="'+(i===astroSel?'on':'')+(i===now?' now':'')+'" data-i="'+i+'" aria-pressed="'+(i===astroSel)+'"><b>'+String(s.h).padStart(2,'0')+':00</b><small>'+esc(s.t[li])+'</small></button>';
+    }).join('');
+    $('astro-times').querySelectorAll('button').forEach(function(b){ b.onclick = function(){ astroSel = +b.dataset.i; renderAstro(); }; });
+    var onBtn = $('astro-times').querySelector('.on'); if (onBtn) $('astro-times').scrollLeft = Math.max(0, onBtn.offsetLeft - $('astro-times').offsetLeft - 16);
+    var s = DAYPLAN[astroSel];
+    $('astro-detail').innerHTML = '<div class="ad-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ASTRO_IC[s.ic]+'</svg></div><div><div class="label" style="color:var(--sun)">'+String(s.h).padStart(2,'0')+':00'+(astroSel===now?' · '+T('現在','now'):'')+'</div><h3>'+esc(s.t[li])+'</h3><p>'+esc(s.d[li])+'</p></div>';
+    $('astro-jobs').innerHTML = JOBS.map(function(j){ return '<div class="job"><b>'+esc(j.t[li])+'</b><p>'+esc(j.d[li])+'</p></div>'; }).join('');
+    $('astro-food').innerHTML = FOODS.map(function(f, i){ return '<details class="food"><summary>'+esc(f.t[li])+'</summary><p>'+esc(f.d[li])+'</p></details>'; }).join('');
+    // pack-the-tray game
+    var answered = Object.keys(trayAns).length, right = TRAY.filter(function(x, i){ return trayAns[i] != null && trayAns[i] === x.ok; }).length;
+    $('tray').innerHTML = TRAY.map(function(x, i){
+      var a = trayAns[i], done = a != null, good = done && a === x.ok;
+      return '<div class="tray-item'+(done?(good?' good':' bad'):'')+'"><b>'+esc(x.t[li])+'</b>'+
+        (done ? '<p>'+(good?'✓ ':'✗ ')+esc(x.x[li])+'</p>' : '<div class="tray-btns"><button data-i="'+i+'" data-v="1">'+T('帶上太空','Take it')+'</button><button data-i="'+i+'" data-v="0">'+T('留在地球','Leave it')+'</button></div>')+'</div>';
+    }).join('');
+    $('tray-score').textContent = answered === TRAY.length ? T('你答對了 ' + right + ' / ' + TRAY.length + ' 項', 'You got ' + right + ' / ' + TRAY.length + ' right') : T('已選 ' + answered + ' / ' + TRAY.length, answered + ' / ' + TRAY.length + ' chosen');
+    $('tray-reset').hidden = answered < TRAY.length;
+    $('tray').querySelectorAll('.tray-btns button').forEach(function(b){ b.onclick = function(){
+      trayAns[+b.dataset.i] = b.dataset.v === '1';
+      if (Object.keys(trayAns).length === TRAY.length){
+        var r = TRAY.filter(function(x, i){ return trayAns[i] === x.ok; }).length;
+        if (!S.trayDone){ S.trayDone = true; save(); addXP(20); note(T('太空餐盤完成 +20 XP','Space tray done +20 XP')); }
+        if (r === TRAY.length) award('space_chef');
+      }
+      renderAstro();
+    }; });
+  }
+  $('tray-reset').onclick = function(){ trayAns = {}; renderAstro(); };
 
   /* ================= boot ================= */
   var start = (location.hash || '').replace('#','');
