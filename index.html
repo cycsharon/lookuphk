@@ -725,15 +725,11 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
 
     <div class="card" style="display:flex;flex-direction:column;gap:12px">
       <div class="label"><span class="zh">你的地區</span><span class="en">Your district</span></div>
-      <label for="district" style="font-size:15px;color:#C9D0E4"><span class="zh">每日挑戰的分數會計入你所選地區的總分。</span><span class="en">Your daily challenge points count towards your district's total.</span></label>
+      <label for="district" style="font-size:15px;color:#C9D0E4"><span class="zh">選擇你代表的地區，它會顯示在你的太空任務卡上。</span><span class="en">Choose the district you represent. It appears on your crew card.</span></label>
       <select id="district" class="field"></select>
       <div class="mine">
-        <div class="label"><span class="zh">你本週為地區贏得</span><span class="en">You earned for your district this week</span></div>
+        <div class="label"><span class="zh">你本週的挑戰分數</span><span class="en">Your challenge points this week</span></div>
         <b id="week-pts">0</b>
-      </div>
-      <div class="board-empty">
-        <strong><span class="zh">全港 18 區排名將於網站正式上線後啟動</span><span class="en">The 18-district ranking goes live when the site launches</span></strong>
-        <span><span class="zh">上線後，每位玩家的分數會即時匯總，看看哪一區最多「天宮觀察員」。你現在的分數已經保存，上線時會一併計入。</span><span class="en">Once the site is online, everyone's points add up live to show which district has the most Tiangong spotters. Your points are saved now and will count at launch.</span></span>
       </div>
     </div>
   </div>
@@ -974,10 +970,8 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
   <section class="payoff" id="see">
     <div class="chap-no"><span class="zh">下一步</span><span class="en">Next</span></div>
     <h2><span class="zh">現在你認識天宮了。<br>想<em>親眼</em>看看它嗎？</span><span class="en">Now you know Tiangong.<br>Want to see it with your <em>own eyes</em>?</span></h2>
-    <p style="color:#C9D0E4;max-width:34em;margin:0"><span class="zh">選擇你的地區，我們會計算天宮下一次飛過你頭頂的時間、方向和亮度。</span><span class="en">Pick your district and we'll work out when Tiangong next flies over you, which direction to look, and how bright it will be.</span></p>
-    <div class="districts" aria-hidden="true"><span>大埔 Tai Po</span><span>葵青 Kwai Tsing</span><span>沙田 Sha Tin</span><span>油尖旺 Yau Tsim Mong</span><span>東區 Eastern</span><span>+13</span></div>
-    <div class="next-note"><span class="zh">追蹤器將在下一個版本加入</span><span class="en">The tracker arrives in the next build</span></div>
-    <div class="ctas"><a class="btn btn-primary" href="#today" data-go="today"><span class="zh">先玩今日挑戰</span><span class="en">Play today's challenge</span></a></div>
+    <p style="color:#C9D0E4;max-width:34em;margin:0"><span class="zh">每天最適合觀看的時段都不同。先到「夜空日誌」查看今晚的時段，再讀「觀測指南」，學懂怎樣在夜空中認出它。</span><span class="en">The best viewing time changes every day. Check tonight's window in the Sky log, then read the spotting guide to learn how to pick it out of the night sky.</span></p>
+    <div class="ctas"><a class="btn btn-primary" href="#sky" data-go="sky"><span class="zh">查看今晚的觀測時段</span><span class="en">See tonight's viewing window</span></a><button class="btn btn-ghost" data-sub="spot" aria-pressed="false"><span class="zh">閱讀觀測指南</span><span class="en">Read the spotting guide</span></button><a class="btn btn-ghost" href="#today" data-go="today"><span class="zh">玩今日挑戰</span><span class="en">Play today's challenge</span></a></div>
   </section>
 </main>
 
@@ -1072,9 +1066,10 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       <div class="label"><span class="zh">想拍下它？</span><span class="en">Want a photo?</span></div>
       <p style="margin:0;color:#C9D0E4"><span class="zh">把手機放在穩固的地方，用夜景模式或長曝光拍幾秒，天宮會變成一條光線。</span><span class="en">Rest your phone on something steady and use night mode or a few seconds of long exposure. Tiangong turns into a streak of light.</span></p>
     </div>
-    <div class="board-empty">
-      <strong><span class="zh">天宮過境時間表將於網站正式上線後啟動</span><span class="en">Pass times arrive when the site launches</span></strong>
-      <span><span class="zh">上線後會用最新軌道數據，計算天宮何時飛過你的地區。現在可以先在每日挑戰中練習辨認。</span><span class="en">Once online, it will use the latest orbital data to work out when Tiangong passes over your district. Practise spotting in the daily challenge for now.</span></span>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px">
+      <div class="label" style="color:var(--sun)"><span class="zh">今晚甚麼時候看？</span><span class="en">When to look tonight</span></div>
+      <p style="margin:0;color:#C9D0E4"><span class="zh">「夜空日誌」會按天文公式，計算香港每天的日落時間和最適合觀看的時段，還可以記錄你的觀測。</span><span class="en">The Sky log works out Hong Kong's sunset and best viewing windows for each day with astronomical formulas, and lets you log what you see.</span></p>
+      <a class="btn btn-ghost btn-block" href="#sky" data-go="sky"><span class="zh">打開夜空日誌</span><span class="en">Open the Sky log</span></a>
     </div>
     <a class="btn btn-primary btn-block" href="#today" data-go="today"><span class="zh">去練習：今日挑戰</span><span class="en">Practise: today's challenge</span></a>
   </div>
@@ -2051,7 +2046,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       '</div>'+
       (rankUp >= 0 ? '<div class="card" style="border-color:var(--sun)"><div class="label" style="color:var(--sun)">'+T('升級了！','Rank up!')+'</div><div style="font-family:var(--f-display-zh);font-weight:900;font-size:24px">Lv '+(rankUp+1)+' · '+esc(T(RANKS[rankUp].zh, RANKS[rankUp].en))+'</div></div>' : '')+
       (unlocked.length ? '<div class="card"><div class="label" style="color:var(--sun)">'+T('新徽章','New badges')+'</div><div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">'+unlocked.map(function(b){ return '<div>'+esc(T(b.zh,b.en))+' <span class="label">+'+b.xp+' XP</span></div>'; }).join('')+'</div></div>' : '')+
-      '<div class="label">'+(dist ? T('分數已計入 '+dist[1],'Points added to '+dist[2]) : T('到「我的」選擇地區，分數就會計入地區總分。','Pick your district in Me to add your points to its total.'))+'</div>'+
+      (dist ? '<div class="label">'+T('代表地區：'+dist[1],'Representing '+dist[2])+'</div>' : '')+
       '<div class="share-box" id="share-text">'+esc(shareText(res))+'</div>'+
       '<button class="btn btn-primary btn-block" id="copy">'+T('複製成績分享','Copy result to share')+'</button>'+
       '<button class="btn btn-ghost btn-block" id="done">'+T('完成','Done')+'</button>';
